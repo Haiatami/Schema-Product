@@ -14,10 +14,7 @@ var options={
         minNumbers: 1,
         minSymbols: 1
     },
-    role: {
-        enum: ['admin', 'user'],
-        default: 'user'
-    }
+    roles:['admin','user','publisher']
 }
 
 module.exports = {
@@ -27,6 +24,6 @@ module.exports = {
             options.username.min, options.username.max)).isLength(options.username),
             body('email', 'email phai dung dinh dang').isEmail(),
             body('password', 'password phai la password manh').isStrongPassword(options.password),
-            body('role', 'role phai la admin hoac user').isIn(options.role)]
+            body('role','role khong hop le').isIn(options.roles)]
     },
 }
